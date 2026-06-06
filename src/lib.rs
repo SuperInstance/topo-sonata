@@ -69,4 +69,4 @@ pub use persistence_tension::{compute_persistence, betti_numbers, betti_from_bar
 pub use genre_betti::{classify_genre, Genre, genre_betti_fingerprint};
 pub use filtration_cadence::{build_filtration, generate_cadence, cadence_kills_h1};
 pub use voice_lead::{vietoris_rips, minimal_voice_leading};
-pub use contrapuntal::{has_parallel_fifths, has_parallel_octaves, check_progression};
+pub use contrapuntal::{check_parallel_fifths, check_parallel_octaves, check_counterpoint};

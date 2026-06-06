@@ -10,5 +10,3 @@ categories = ["mathematics", "algorithms"]
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
-
-[dev-dependencies]

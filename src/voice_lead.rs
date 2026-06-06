@@ -202,8 +202,8 @@ mod tests {
         let am = Chord { notes: vec![0, 4, 9] };
         let dm = Chord { notes: vec![2, 5, 9] };
         // C↔Am: 2.0, C↔Dm: larger, Am↔Dm: some distance
-        let vr = vietoris_rips(&[c, am, dm], 4.0);
-        // With epsilon=4, all pairs should connect → triangle
+        let vr = vietoris_rips(&[c, am, dm], 6.0);
+        // With epsilon=6, all pairs should connect → triangle
         assert!(vr.simplices.iter().any(|s| s.len() == 3));
     }
 

@@ -35,15 +35,11 @@ pub fn compute_persistence(filtration: &Filtration) -> Vec<PersistenceBarcode> {
     // before higher-dimensional ones at the same filtration value.
     let mut order: Vec<usize> = (0..n).collect();
     order.sort_by(|&a, &b| {
-        values[*a]
-            .partial_cmp(&values[*b])
+        values[a]
+            .partial_cmp(&values[b])
             .unwrap_or(std::cmp::Ordering::Equal)
-            .then_with(|| {
-                simplices[a]
-                    .len()
-                    .cmp(&simplices[b].len())
-            })
-            .then_with(|| simplices[a].cmp(simplices[b]))
+            .then_with(|| simplices[a].len().cmp(&simplices[b].len()))
+            .then_with(|| simplices[a].cmp(&simplices[b]))
     });
 
     // Build a map from simplex (as sorted vec) to its original index.
@@ -407,7 +403,7 @@ mod tests {
         // H₀: one bar born at 0 that never dies, one born at 0 that dies at 1
         assert!(barcodes[0].bars.len() >= 1);
         // There should be an infinite bar
-        assert!(barcodes[0].bars.iter().any(|&(b, d)| d == f64::INFINITY));
+        assert!(barcodes[0].bars.iter().any(|&(_b, d)| d == f64::INFINITY));
     }
 
     #[test]
