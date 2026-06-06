@@ -81,7 +81,7 @@ fn next_combination(comb: &mut Vec<usize>, n: usize) -> bool {
     let k = comb.len();
     let mut i = k as i32 - 1;
     while i >= 0 {
-        if comb[i as usize] < n - k + (i as usize) + 1 {
+        if comb[i as usize] < n - k + (i as usize) {
             comb[i as usize] += 1;
             for j in (i as usize + 1)..k {
                 comb[j] = comb[j - 1] + 1;
